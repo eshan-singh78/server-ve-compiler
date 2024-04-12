@@ -8,6 +8,11 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
+// Endpoint to check the health/status of the server
+app.get('/health', (req, res) => {
+  res.status(200).send('Server is up and running');
+});
+
 app.post('/compile', async (req, res) => {
   const { code, language } = req.body;
 
